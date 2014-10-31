@@ -1,79 +1,681 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Brian Haveri" />
+  <meta name="description" content="Underscore.php is a PHP port of the popular Underscore.js library" />
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Underscore.php : Underscore.php中文文档">
+  <title>Underscore.php</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #f2f2f2;
+      font-family: Helvetica, Arial, FreeSans, san-serif;
+      font-size: 14px;
+      color: #222;
+      line-height: 1.4em;
+    }
+    #container {
+      margin: 0 0 0 50px;
+      width: 800px;
+    }
+    h1 { font-size: 32px; padding: 20px 0 5px 0; margin-left: -5px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { background: none; color: #222; }
+    h2 { font-size: 24px; font-weight: bold; color: #0d0d0d; margin: 30px 0 5px 0; border-top: 3px solid #ddd; padding-top: 30px; }
+    h3 { font-size: 16px; font-weight: bold; color: #0d0d0d; margin: 20px 0 5px 0; }
+    p { margin: 0 0 10px 0; }
+    a { background: #5A68A5; color: #fff; padding: 5px 5px 2px 5px; text-decoration: none; }
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      a { padding: 2px 5px; }
+    }
+    a:hover { background: #384683; color: #fff; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    pre { color: #666; background: #ddd; padding: 15px; margin: 5px 0; border-left: 5px solid #5A68A5; font-family: Monaco, "Lucida Grande", monospace; }
+    code { font-family: Monaco, "Lucida Grande", monospace; color: #666; margin-left: 15px; }
+    p code, li code { margin: 0; }
+    hr { border: 0; width: 100%; border-bottom: 3px solid #ddd; margin: 20px 0; }
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+    .fade { color: #aaa; }
+    .function { font-size: 20px; }
+    .alias { float: right; color: #666; font-style: italic; }
+    .block { margin-top: 35px; margin-bottom: 2px; }
+    nav p { line-height: 1.8em; }
+  </style>
+</head>
 
-    <title>Underscore.php</title>
-  </head>
+<body>
+  <div id="container">
 
-  <body>
+    <h1><a href="http://github.com/brianhaveri/Underscore.php">Underscore.php</a>
+      <span class="small">by <a href="http://github.com/brianhaveri">brianhaveri</a></span></h1>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/cucr/Underscore.php">View on GitHub</a>
-
-          <h1 id="project_title">Underscore.php</h1>
-          <h2 id="project_tagline">Underscore.php中文文档</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/cucr/Underscore.php/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/cucr/Underscore.php/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Underscore.php maintained by <a href="https://github.com/cucr">cucr</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
+    <nav>
+      <p><a href="http://github.com/brianhaveri/Underscore.php">Underscore.php</a> is a PHP port of the popular <a href="http://documentcloud.github.com/underscore/">Underscore.js</a> library. In addition to porting Underscore's functionality, Underscore.php includes <a href="https://github.com/brianhaveri/Underscore.php/tree/master/test">matching unit tests</a>. Underscore.php requires PHP 5.3 or greater.</p>
+      <p>Underscore.php is <a href="http://github.com/brianhaveri/Underscore.php">hosted on GitHub</a> and open sourced under the MIT license.</p>
+    </nav>
+      
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/brianhaveri/Underscore.php/zipball/master">zip</a> or
+      <a href="http://github.com/brianhaveri/Underscore.php/tarball/master">tar</a> formats.
+    </p>
     
+    <nav>
+      <h2>Table of Contents</h2>
+      <p><a href="#styles">Object-Oriented and Static Styles</a></p>
+      
+      <h3>Collections</h3>
+      <p>
+        <a href="#each">each</a>,
+        <a href="#map">map</a>,
+        <a href="#reduce">reduce</a>,
+        <a href="#reduceRight">reduceRight</a>,
+        <a href="#find">find</a>,
+        <a href="#filter">filter</a>,
+        <a href="#reject">reject</a>,
+        <a href="#all">all</a>,
+        <a href="#any">any</a>,
+        <a href="#includ">includ</a>,
+        <a href="#invoke">invoke</a>,
+        <a href="#pluck">pluck</a>,
+        <a href="#max">max</a>,
+        <a href="#min">min</a>,
+        <a href="#groupBy">groupBy</a>,
+        <a href="#sortBy">sortBy</a>,
+        <a href="#sortedIndex">sortedIndex</a>,
+        <a href="#shuffle">shuffle</a>,
+        <a href="#toArray">toArray</a>,
+        <a href="#size">size</a>
+      </p>
+      
+      <h3>Arrays</h3>
+      <p>
+        <a href="#first">first</a>,
+        <a href="#initial">initial</a>,
+        <a href="#rest">rest</a>,
+        <a href="#last">last</a>,
+        <a href="#compact">compact</a>,
+        <a href="#flatten">flatten</a>,
+        <a href="#without">without</a>,
+        <a href="#uniq">uniq</a>,
+        <a href="#union">union</a>,
+        <a href="#intersection">intersection</a>,
+        <a href="#difference">difference</a>,
+        <a href="#zip">zip</a>,
+        <a href="#indexOf">indexOf</a>,
+        <a href="#lastIndexOf">lastIndexOf</a>,
+        <a href="#range">range</a></span>
+      </p>
+      
+      <h3>Functions</h3>
+      <p>
+        <span class="fade">bind</span>,
+        <span class="fade">bindAll</span>
+        <a href="#memoize">memoize</a>,
+        <span class="fade">delay</span>,
+        <span class="fade">defer</span>,
+        <a href="#throttle">throttle</a>,
+        <span class="fade">debounce</span>,
+        <a href="#once">once</a>,
+        <a href="#after">after</a>,
+        <a href="#wrap">wrap</a>,
+        <a href="#compose">compose</a>
+      </p>
+      
+      <h3>Objects</h3>
+      <p>
+        <a href="#keys">keys</a>,
+        <a href="#values">values</a>,
+        <a href="#functions">functions</a>,
+        <a href="#extend">extend</a>,
+        <a href="#defaults">defaults</a>,
+        <a href="#clon">clon</a>,
+        <a href="#tap">tap</a>,
+        <a href="#has">has</a>,
+        <a href="#isEqual">isEqual</a>,
+        <a href="#isEmpty">isEmpty</a>,
+        <span class="fade">isElement</span>,
+        <a href="#isObject">isObject</a>,
+        <a href="#isArray">isArray</a>,
+        <span class="fade">isArguments</span>,
+        <a href="#isFunction">isFunction</a>,
+        <a href="#isString">isString</a>,
+        <a href="#isNumber">isNumber</a>,
+        <a href="#isBoolean">isBoolean</a>,
+        <a href="#isDate">isDate</a>,
+        <span class="fade">isRegExp</span>,
+        <a href="#isNaN">isNaN</a>,
+        <a href="#isNull">isNull</a>,
+        <span class="fade">isUndefined</span>
+      </p>
+      
+      <h3>Utility</h3>
+      <p>
+        <span class="fade">noConflict</span>,
+        <a href="#identity">identity</a>,
+        <a href="#times">times</a>,
+        <a href="#mixin">mixin</a>,
+        <a href="#uniqueId">uniqueId</a>,
+        <a href="#escape">escape</a>,
+        <a href="#template">template</a>
+      </p>
+      
+      <h3>Chaining</h3>
+      <p>
+        <a href="#chain">chain</a>,
+        <a href="#value">value</a>
+      </p>
+      
+      <p class="fade"><i>Some functions were not ported from Underscore.js to Underscore.php for technical reasons or because they weren't applicable to PHP.</i></p>
+    </nav>
+    
+    <h2>Single Underscore vs. Double Underscore</h2>
+    <p>In many PHP installations, <code>_()</code> already exists as an alias to <code>gettext()</code>. The previous declaration of <code>_</code> in PHP forces Underscore.php to use another name. For consistency and memorability, <code>__</code> has been chosen for both the function and class name.</p>
+    
+    <h2 id="styles">Object-Oriented and Static Styles</h2>
+    <p>Underscore.php works in both object-oriented and static styles. The following lines are identical ways to double a list of numbers.</p>
+    <pre>__::map(array(1, 2, 3), function($n) { return $n * 2; });
+__(array(1, 2, 3))->map(function($n) { return $n * 2; });</pre>
 
-  </body>
+<h2>Collections (Arrays or Objects)</h2>
+<p class="block" id="each"><b class="function">each</b> <code>__::each(collection, iterator)</code></p>
+<p>Iterates over the collection and yield each in turn to the iterator function. Arguments passed to iterator are (value, key, collection). Unlike Underscore.js, context is passed using PHP's <code>use</code> statement. Underscore.php does not contain the forEach alias because 'foreach' is a reserved keyword in PHP.</p>
+<pre>__::each(array(1, 2, 3), function($num) { echo $num . ','; }); // 1,2,3,
+
+$multiplier = 2;
+__::each(array(1, 2, 3), function($num, $index) use ($multiplier) {
+  echo $index . '=' . ($num * $multiplier) . ',';
+});
+// 0=2,1=4,2=6,</pre>
+
+<p class="block" id="map"><b class="function">map</b> <code>__::map(collection, iterator)</code> <span class="alias">Alias: <b>collect</b></span></p>
+<p>Returns an array of values by mapping each in collection through the iterator. Arguments passed to iterator are (value, key, collection). Unlike Underscore.js, context is passed using PHP's <code>use</code> statement.</p>
+<pre>__::map(array(1, 2, 3), function($num) { return $num * 3; }); // array(3, 6, 9)
+
+__::map(array('one'=>1, 'two'=>2, 'three'=>3), function($num, $key) {
+  return $num * 3;
+});
+// array(3, 6, 9);
+</pre>
+
+<p class="block" id="reduce"><b class="function">reduce</b> <code>__::reduce(collection, iterator, memo)</code> <span class="alias">Aliases: <b>inject, foldl</b></span></p>
+<p>Reduce the collection into a single value. Memo is the initial state of the reduction, updated by the return value of the iterator. Unlike Underscore.js, context is passed using PHP's <code>use</code> statement.</p>
+<pre>__::reduce(array(1, 2, 3), function($memo, $num) { return $memo + $num; }, 0); // 6</pre>
+
+<p class="block" id="reduceRight"><b class="function">reduceRight</b> <code>__::reduceRight(collection, iterator, memo)</code> <span class="alias">Alias: <b>foldr</b></span></p>
+<p>Right-associative version of reduce.</p>
+<pre>$list = array(array(0, 1), array(2, 3), array(4, 5));
+$flat = __::reduceRight($list, function($a, $b) { return array_merge($a, $b); }, array());
+// array(4, 5, 2, 3, 0, 1)</pre>
+
+<p class="block" id="find"><b class="function">find</b> <code>__::find(collection, iterator)</code> <span class="alias">Alias: <b>detect</b></span></p>
+<p>Return the value of the first item in the collection that passes the truth test (<b>iterator</b>).</p>
+<pre>__::find(array(1, 2, 3, 4), function($num) { return $num % 2 === 0; }); // 2</pre>
+
+<p class="block" id="filter"><b class="function">filter</b> <code>__::filter(collection, iterator)</code> <span class="alias">Alias: <b>select</b></span></p>
+<p>Return the values in the collection that pass the truth test (<b>iterator</b>).</p>
+<pre>__::filter(array(1, 2, 3, 4), function($num) { return $num % 2 === 0; }); // array(2, 4)</pre>
+
+<p class="block" id="reject"><b class="function">reject</b> <code>__::reject(collection, iterator)</code></p>
+<p>Return an array where the items failing the truth test (<b>iterator</b>) are removed.</p>
+<pre>__::reject(array(1, 2, 3, 4), function($num) { return $num % 2 === 0; }); // array(1, 3)</pre>
+
+<p class="block" id="all"><b class="function">all</b> <code>__::all(collection, iterator)</code></p>
+<p>Returns true if all values in the collection pass the truth test (<b>iterator</b>).</p>
+<pre>__::all(array(1, 2, 3, 4), function($num) { return $num % 2 === 0; }); // false
+__::all(array(1, 2, 3, 4), function($num) { return $num < 5; }); // true</pre>
+
+<p class="block" id="any"><b class="function">any</b> <code>__::any(collection, iterator)</code></p>
+<p>Returns true if any values in the collection pass the truth test (<b>iterator</b>).</p>
+<pre>__::any(array(1, 2, 3, 4), function($num) { return $num % 2 === 0; }); // true
+__::any(array(1, 2, 3, 4), function($num) { return $num === 5; }); // false</pre>
+
+<p class="block" id="includ"><b class="function">includ</b> <code>__::includ(collection, value)</code> <span class="alias">Alias: <b>contains</b></span></p>
+<p>Returns true if value is found in the collection using === to test equality. This function is called 'include' in Underscore.js, but was renamed to 'includ' in Underscore.php because 'include' is a reserved keyword in PHP.</p>
+<pre>__::includ(array(1, 2, 3), 3); // true</pre>
+
+<p class="block" id="invoke"><b class="function">invoke</b> <code>__::invoke(collection, functionName)</code></p>
+<p>Returns a copy of the collection after running functionName across all elements.</p>
+<pre>__::invoke(array(' foo', ' bar '), 'trim'); // array('foo', 'bar')</pre>
+
+<p class="block" id="pluck"><b class="function">pluck</b> <code>__::pluck(collection, propertyName)</code></p>
+<p>Extract an array of property values</p>
+<pre>$stooges = array(
+  array('name'=>'moe', 'age'=>40),
+  array('name'=>'larry', 'age'=>50),
+  array('name'=>'curly', 'age'=>60)
+);
+__::pluck($stooges, 'name'); // array('moe', 'larry', 'curly')</pre>
+
+<p class="block" id="max"><b class="function">max</b> <code>__::max(collection, [iterator])</code></p>
+<p>Returns the maximum value from the collection. If passed an iterator, max will return max value returned by the iterator. Unlike Underscore.js, context is passed using PHP's <code>use</code> statement.</p>
+<pre>$stooges = array(
+  array('name'=>'moe', 'age'=>40),
+  array('name'=>'larry', 'age'=>50),
+  array('name'=>'curly', 'age'=>60)
+);
+__::max($stooges, function($stooge) { return $stooge['age']; });
+// array('name'=>'curly', 'age'=>60)</pre>
+
+<p class="block" id="min"><b class="function">min</b> <code>__::min(collection, [iterator])</code></p>
+<p>Returns the minimum value from the collection. If passed an iterator, min will return min value returned by the iterator. Unlike Underscore.js, context is passed using PHP's <code>use</code> statement.</p>
+<pre>$stooges = array(
+  array('name'=>'moe', 'age'=>40),
+  array('name'=>'larry', 'age'=>50),
+  array('name'=>'curly', 'age'=>60)
+);
+__::min($stooges, function($stooge) { return $stooge['age']; });
+// array('name'=>'moe', 'age'=>40)</pre>
+
+<p class="block" id="groupBy"><b class="function">groupBy</b> <code>__::groupBy(collection, iterator)</code></p>
+<p>Group values by their return value when passed through the iterator. If iterator is a string, the result will be grouped by that property.</p>
+<pre>__::groupBy(array(1, 2, 3, 4, 5), function($n) { return $n % 2; });
+// array(0=>array(2, 4), 1=>array(1, 3, 5))
+
+$values = array(
+  array('name'=>'Apple',   'grp'=>'a'),
+  array('name'=>'Bacon',   'grp'=>'b'),
+  array('name'=>'Avocado', 'grp'=>'a')
+);
+__::groupBy($values, 'grp');
+//array(
+//  'a'=>array(
+//    array('name'=>'Apple',   'grp'=>'a'),
+//    array('name'=>'Avocado', 'grp'=>'a')
+//  ),
+//  'b'=>array(
+//    array('name'=>'Bacon',   'grp'=>'b')
+//  )
+//);</pre>
+
+<p class="block" id="sortBy"><b class="function">sortBy</b> <code>__::sortBy(collection, iterator)</code></p>
+<p>Returns an array sorted in ascending order based on the iterator results. If passed an iterator, min will return min value returned by the iterator. Unlike Underscore.js, context is passed using PHP's <code>use</code> statement.</p>
+<pre>__::sortBy(array(1, 2, 3), function($n) { return -$n; }); // array(3, 2, 1)</pre>
+
+<p class="block" id="sortedIndex"><b class="function">sortedIndex</b> <code>__::sortedIndex(collection, value, [iterator])</code></p>
+<p>Returns the index at which the value should be inserted into the sorted collection.</p>
+<pre>__::sortedIndex(array(10, 20, 30, 40), 35); // 3</pre>
+
+<p class="block" id="shuffle"><b class="function">shuffle</b> <code>__::shuffle(collection)</code></p>
+<p>Returns a shuffled copy of the collection.</p>
+<pre>__::shuffle(array(10, 20, 30, 40)); // 30, 20, 40, 10</pre>
+
+<p class="block" id="toArray"><b class="function">toArray</b> <code>__::toArray(collection)</code></p>
+<p>Converts the collection into an array.</p>
+<pre>$stooge = new StdClass;
+$stooge->name = 'moe';
+$stooge->age = 40;
+__::toArray($stooge); // array('name'=>'moe', 'age'=>40)</pre>
+
+<p class="block" id="size"><b class="function">size</b> <code>__::size(collection)</code></p>
+<p>Returns the number of values in the collection.</p>
+<pre>$stooge = new StdClass;
+$stooge->name = 'moe';
+$stooge->age = 40;
+__::size($stooge); // 2</pre>
+
+
+<h2>Arrays</h2>
+<p class="block" id="first"><b class="function">first</b> <code>__::first(array, [n])</code> <span class="alias">Alias: <b>head</b></span></p>
+<p>Get the first element of an array. Passing n returns the first n elements.</p>
+<pre>__::first(array(5, 4, 3, 2, 1)); // 5
+__::first(array(5, 4, 3, 2, 1), 3); // array(5, 4, 3)</pre>
+
+<p class="block" id="initial"><b class="function">initial</b> <code>__::initial(array, [n])</code></span></p>
+<p>Get everything but the last array element. Passing n excludes the last n elements.</p>
+<pre>__::initial(array(5, 4, 3, 2, 1)); // array(5, 4, 3, 2)
+__::initial(array(5, 4, 3, 2, 1), 3); // array(5, 4)</pre>
+
+<p class="block" id="rest"><b class="function">rest</b> <code>__::rest(array, [index])</code> <span class="alias">Alias: <b>tail</b></span></p>
+<p>Get the rest of the array elements. Passing an index returns from that index onward.</p>
+<pre>__::rest(array(5, 4, 3, 2, 1)); // array(4, 3, 2, 1)</pre>
+
+<p class="block" id="last"><b class="function">last</b> <code>__::last(array, [n])</code></p>
+<p>Get the last element of an array. Passing n returns the last n elements.</p>
+<pre>__::last(array(5, 4, 3, 2, 1)); // 1
+__::last(array(5, 4, 3, 2, 1), 2); // array(2, 1)</pre>
+
+<p class="block" id="compact"><b class="function">compact</b> <code>__::compact(array)</code></p>
+<p>Returns a copy of the array with falsy values removed</p>
+<pre>__::compact(array(false, true, 'a', 0, 1, '')); // array(true, 'a', 1)</pre>
+
+<p class="block" id="flatten"><b class="function">flatten</b> <code>__::flatten(array, [shallow])</code></p>
+<p>Flattens a multidimensional array. If you pass shallow, the array will only be flattened a single level.</p>
+<pre>__::flatten(array(1, array(2), array(3, array(array(array(4))))));
+// array(1, 2, 3, 4)
+
+__::flatten(array(1, array(2), array(3, array(array(array(4))))), true);
+// array(1, 2, 3, array(array(4)))
+</pre>
+
+<p class="block" id="without"><b class="function">without</b> <code>__::without(array, [*values])</code></p>
+<p>Returns a copy of the array with all instances of <b>values</b> removed. === is used for equality testing. Keys are maintained.</p>
+<pre>__::without(array(5, 4, 3, 2, 1), 3, 2); // array(5, 4, 4=>1)</pre>
+
+<p class="block" id="uniq"><b class="function">uniq</b> <code>__::uniq(array, [isSorted [, iterator]])</code> <span class="alias">Alias: <b>unique</b></span></p>
+<p>Returns a copy of the array containing no duplicate values. Unlike Underscore.js, passing isSorted does not currently affect the performance of <code>uniq</code>. You can optionally compute uniqueness by passing an iterator function.</p>
+<pre>__::uniq(array(2, 2, 4, 4, 4, 1, 1, 1)); // array(2, 4, 1)</pre>
+
+<p class="block" id="union"><b class="function">union</b> <code>__::union(*arrays)</code></p>
+<p>Returns an array containing the unique items in one or more of the arrays.</p>
+<pre>$arr1 = array(1, 2, 3);
+$arr2 = array(101, 2, 1, 10);
+$arr3 = array(2, 1);
+__::union($arr1, $arr2, $arr3); // array(1, 2, 3, 101, 10)</pre>
+
+<p class="block" id="intersection"><b class="function">intersection</b> <code>__::intersection(*arrays)</code></p>
+<p>Returns an array containing the intersection of all the arrays. Each value in the resulting array exists in all arrays.</p>
+<pre>$arr1 = array(0, 1, 2, 3);
+$arr2 = array(1, 2, 3, 4);
+$arr3 = array(2, 3, 4, 5);
+__::intersection($arr1, $arr2, $arr3); // array(2, 3)</pre>
+
+<p class="block" id="difference"><b class="function">difference</b> <code>__::difference(array, *others)</code></p>
+<p>Returns an array containing the items existing in one array, but not the other.</p>
+<pre>__::difference(array(1, 2, 3, 4, 5), array(5, 2, 10)); // array(1, 3, 4)</pre>
+
+<p class="block" id="zip"><b class="function">zip</b> <code>__::zip(*arrays)</code></p>
+<p>Merges arrays</p>
+<pre>$names = array('moe', 'larry', 'curly');
+$ages = array(30, 40, 50);
+$leaders = array(true, false, false);
+
+__::zip($names, $ages, $leaders);
+// array(
+//   array('moe', 30, true),
+//   array('larry', 40, false),
+//   array('curly', 50, false)
+// )</pre>
+
+<p class="block" id="indexOf"><b class="function">indexOf</b> <code>__::indexOf(array, value)</code></p>
+<p>Returns the index of the first match. Returns -1 if no match is found. Unlike Underscore.js, Underscore.php does not take a second isSorted parameter.</p>
+<pre>__::indexOf(array(1, 2, 3, 2, 2), 2); // 1</pre>
+
+<p class="block" id="lastIndexOf"><b class="function">lastIndexOf</b> <code>__::lastIndexOf(array, value)</code></p>
+<p>Returns the index of the last match. Returns -1 if no match is found.</p>
+<pre>__::lastIndexOf(array(1, 2, 3, 2, 2), 2); // 4</pre>
+
+<p class="block" id="range"><b class="function">range</b> <code>__::range([start], stop, [step])</code></p>
+<p>Returns an array of integers from <b>start</b> to <b>stop</b> (exclusive) by <b>step</b>. Defaults: <b>start</b>=0, <b>step</b>=1.</p>
+<pre>__::range(10);         // array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+__::range(1, 5);       // array(1, 2, 3, 4)
+__::range(0, 30, 5);   // array(0, 5, 10, 15, 20, 25)
+__::range(0, -5, -1);  // array(0, -1, -2, -3, -4)
+__::range(0);          // array()</pre>
+
+<h2>Functions</h2>
+<p class="block" id="memoize"><b class="function">memoize</b> <code>__::memoize(function, [hashFunction])</code></p>
+<p>Memoizes a function by caching the computed result. Useful for computationally expensive functions. Optionally, pass a hashFunction to calculate the key for the cached value.</p>
+<pre>$fibonacci = function($n) use (&$fibonacci) {
+  return $n < 2 ? $n : $fibonacci($n - 1) + $fibonacci($n - 2);
+};
+$fastFibonacci = __::memoize($fibonacci);
+</pre>
+
+<p class="block" id="throttle"><b class="function">throttle</b> <code>__::throttle(function, wait)</code></p>
+<p>Throttles a function so that it can only be called once every <b>wait</b> milliseconds.</p>
+<pre>$func = function() { return 'x'; }
+__::throttle($func);</pre>
+
+<p class="block" id="once"><b class="function">once</b> <code>__::once(function)</code></p>
+<p>Creates a version of the function that can only be called once.</p>
+<pre>$num = 0;
+$increment = __::once(function() use (&$num) { return $num++; });
+$increment();
+$increment();
+echo $num; // 1</pre>
+
+<p class="block" id="after"><b class="function">after</b> <code>__::after(count, function)</code></p>
+<p>Creates a version of the function that will only run after being called <b>count</b> times.</p>
+<pre>$func = __::after(3, function() { return 'x'; });
+$func(); //
+$func(); //
+$func(); // 'x'</pre>
+
+<p class="block" id="wrap"><b class="function">wrap</b> <code>__::wrap(function, wrapper)</code></p>
+<p>Wraps the <b>function</b> inside the <b>wrapper</b> function, passing it as the first argument. Lets the <b>wrapper</b> execute code before and/or after the <b>function</b> runs.</p>
+<pre>$hello = function($name) { return 'hello: ' . $name; };
+$hi = __::wrap($hello, function($func) {
+  return 'before, ' . $func('moe') . ', after'; 
+});
+$hi(); // 'before, hello: moe, after'</pre>
+
+<p class="block" id="compose"><b class="function">compose</b> <code>__::compose(*functions)</code></p>
+<p>Returns the composition of the <b>functions</b>, where the return value is passed to the following function.</p>
+<pre>$greet = function($name) { return 'hi: ' . $name; };
+$exclaim = function($statement) { return $statement . '!'; };
+$welcome = __::compose($exclaim, $greet);
+$welcome('moe'); // 'hi: moe!'</pre>
+
+
+<h2>Objects</h2>
+<p class="block" id="keys"><b class="function">keys</b> <code>__::keys(object)</code></p>
+<p>Get the keys</p>
+<pre>__::keys((object) array('name'=>'moe', 'age'=>40)); // array('name', 'age')</pre>
+
+<p class="block" id="values"><b class="function">values</b> <code>__::values(object)</code></p>
+<p>Get the values</p>
+<pre>__::values((object) array('name'=>'moe', 'age'=>40)); // array('moe', 40)</pre>
+
+<p class="block" id="functions"><b class="function">functions</b> <code>__::functions(object)</code> <span class="alias">Alias: <b>methods</b></span></p>
+<p>Get the names of functions available to the object</p>
+<pre>
+class Stooge {
+  public function getName() { return 'moe'; }
+  public function getAge() { return 40; }
+}
+$stooge = new Stooge;
+__::functions($stooge); // array('getName', 'getAge')</pre>
+
+<p class="block" id="extend"><b class="function">extend</b> <code>__::extend(destination, *sources)</code></p>
+<p>Copy all properties from the <b>source</b> objects into the <b>destination</b> object. Copying happens in order, so rightmost sources have override power.</p>
+<pre>__::extend((object) array('name'=>'moe'), (object) array('age'=>50));
+// (object) array('name'=>'moe', 'age'=>50)</pre>
+
+<p class="block" id="defaults"><b class="function">defaults</b> <code>__::defaults(object, *defaults)</code></p>
+<p>Returns the object with any missing values filled in using the defaults. Once a default is applied for a given property, it will not be overridden by following defaults.</p>
+<pre>$food = (object) array('dairy'=>'cheese');
+$defaults = (object) array('meat'=>'bacon');
+__::defaults($food, $defaults); // (object) array('dairy'=>'cheese', 'meat'=>'bacon');</pre>
+
+<p class="block" id="clon"><b class="function">clon</b> <code>__::clon(object)</code></p>
+<p>Returns a shallow copy of the object. This function is called 'clone' in Underscore.js, but was renamed to 'clon' in Underscore.php because 'clone' is a reserved keyword in PHP.</p>
+<pre>$stooge = (object) array('name'=>'moe');
+__::clon($stooge); // (object) array('name'=>'moe');</pre>
+
+<p class="block" id="tap"><b class="function">tap</b> <code>__::tap(object, interceptor)</code></p>
+<p>Invokes the <b>interceptor</b> on the <b>object</b>, then returns the object. Useful for performing intermediary operations on the object.</p>
+<pre>$interceptor = function($obj) { return $obj * 2; };
+__::chain(array(1, 2, 3))->max()
+                         ->tap($interceptor)
+                         ->value(); // 6</pre>
+
+<p class="block" id="has"><b class="function">has</b> <code>__::has(object, key)</code></p>
+<p>Does the object have this key?</p>
+<pre>__::has((object) array('a'=>1, 'b'=>2, 'c'=>3), 'b'); // true</pre>
+
+<p class="block" id="isEqual"><b class="function">isEqual</b> <code>__::isEqual(object, other)</code></p>
+<p>Are these items equal? Uses === equality testing. Objects tested using values.</p>
+<pre>$stooge = (object) array('name'=>'moe');
+$clon = __::clon($stooge);
+$stooge === $clon; // false
+__::isEqual($stooge, $clon); // true</pre>
+
+<p class="block" id="isEmpty"><b class="function">isEmpty</b> <code>__::isEmpty(object)</code></p>
+<p>Returns true if the <b>object</b> contains no values.</p>
+<pre>$stooge = (object) array('name'=>'moe');
+__::isEmpty($stooge); // false
+__::isEmpty(new StdClass); // true
+__::isEmpty((object) array()); // true</pre>
+
+<p class="block" id="isObject"><b class="function">isObject</b> <code>__::isObject(object)</code></p>
+<p>Returns true if passed an object.</p>
+<pre>__::isObject((object) array(1, 2)); // true
+__::isObject(new StdClass); // true</pre>
+
+<p class="block" id="isArray"><b class="function">isArray</b> <code>__::isArray(object)</code></p>
+<p>Returns true if passed an array.</p>
+<pre>__::isArray(array(1, 2)); // true
+__::isArray((object) array(1, 2)); // false</pre>
+
+<p class="block" id="isFunction"><b class="function">isFunction</b> <code>__::isFunction(object)</code></p>
+<p>Returns true if passed a function.</p>
+<pre>__::isFunction(function() {}); // true
+__::isFunction('trim'); // false</pre>
+
+<p class="block" id="isString"><b class="function">isString</b> <code>__::isString(object)</code></p>
+<p>Returns true if passed a string.</p>
+<pre>__::isString('moe'); // true
+__::isString(''); // true</pre>
+
+<p class="block" id="isNumber"><b class="function">isNumber</b> <code>__::isNumber(object)</code></p>
+<p>Returns true if passed a number.</p>
+<pre>__::isNumber(1); // true
+__::isNumber(2.5); // true
+__::isNumber('5'); // false</pre>
+
+<p class="block" id="isBoolean"><b class="function">isBoolean</b> <code>__::isBoolean(object)</code></p>
+<p>Returns true if passed a boolean.</p>
+<pre>__::isBoolean(null); // false
+__::isBoolean(true); // true
+__::isBoolean(0); // false</pre>
+
+<p class="block" id="isDate"><b class="function">isDate</b> <code>__::isDate(object)</code></p>
+<p>Returns true if passed a DateTime object</p>
+<pre>__::isDate(null); // false
+__::isDate('2011-06-09 01:02:03'); // false
+__::isDate(new DateTime); // true</pre>
+
+<p class="block" id="isNaN"><b class="function">isNaN</b> <code>__::isNaN(object)</code></p>
+<p>Returns true if value is NaN</p>
+<pre>__::isNaN(null); // false
+__::isNaN(acos(8)); // true</pre>
+
+<p class="block" id="isNull"><b class="function">isNull</b> <code>__::isNull(object)</code></p>
+<p>Returns true if value is null</p>
+<pre>__::isNull(null); // true
+__::isNull(false); // false</pre>
+
+
+<h2>Utility</h2>
+<p class="block" id="identity"><b class="function">identity</b> <code>__::identity(value)</code></p>
+<p>Returns the same value passed as the argument</p>
+<pre>$moe = array('name'=>'moe');
+$moe === __::identity($moe); // true</pre>
+
+<p class="block" id="times"><b class="function">times</b> <code>__::times(n, iterator)</code></p>
+<p>Invokes the <b>iterator</b> function <b>n</b> times.</p>
+<pre>__::times(3, function() { echo 'a'; }); // 'aaa'</pre>
+
+<p class="block" id="mixin"><b class="function">mixin</b> <code>__::mixin(array)</code></p>
+<p>Extend Underscore.php with your own functions.</p>
+<pre>__::mixin(array(
+  'capitalize'=> function($string) { return ucwords($string); },
+  'yell'      => function($string) { return strtoupper($string); }
+));
+__::capitalize('moe'); // 'Moe'
+__::yell('moe');       // 'MOE'</pre>
+
+<p class="block" id="uniqueId"><b class="function">uniqueId</b> <code>__::uniqueId([prefix])</code></p>
+<p>Generate a globally unique id.</p>
+<pre>__::uniqueId(); // 0
+__::uniqueId('stooge_'); // 'stooge_1'
+__::uniqueId(); // 2</pre>
+
+<p class="block" id="escape"><b class="function">escape</b> <code>__::escape(html)</code></p>
+<p>Escapes the string.</p>
+<pre>__::escape('Curly, Larry & Moe'); // 'Curly, Larry &amp;amp; Moe'</pre>
+
+<p class="block" id="template"><b class="function">template</b> <code>__::template(templateString, [context])</code></p>
+<p>Compile templates into functions that can be evaluated for rendering. Templates can interpolate variables and execute arbitrary PHP code.</p>
+<pre>$compiled = __::template('hello: <%= $name %>');
+$compiled(array('name'=>'moe')); // 'hello: moe'
+
+$list = '<% __::each($people, function($name) { %> &lt;li&gt;<%= $name %>&lt;/li&gt; <% }); %>';
+__::template($list, array('people'=>array('moe', 'curly', 'larry')));
+// '&lt;li&gt;moe&lt;/li&gt;&lt;li&gt;curly&lt;/li&gt;&lt;li&gt;larry&lt;/li&gt;'</pre>
+
+<h3>Single vs. double quotes</h3>
+<p>Note: if your template strings include variables, wrap your template strings in single quotes, not double quotes. Wrapping in double quotes will cause your variables to be interpolated prior to entering the template function.</p>
+<pre>// Correct
+$compiled = __::template('hello: <%= $name %>');
+
+// Incorrect
+$compiled = __::template("hello: <%= $name %>");</pre>
+
+<h3>Custom delimiters</h3>
+<p>You can set custom delimiters (for instance, Mustache style) by calling <code>__::templateSettings()</code> and passing interpolate and/or evaluate values:</p>
+<pre>
+// Mustache style 
+__::templateSettings(array(
+  'interpolate' => '/\{\{(.+?)\}\}/'
+));
+
+$mustache = __::template('Hello {{$planet}}!');
+$mustache(array('planet'=>'World')); // "Hello World!"</pre>
+
+
+<h2>Chaining</h2>
+<p class="block" id="chain"><b class="function">chain</b> <code>__::chain(item)</code></p>
+<p>Returns a wrapped object. Methods will return the object until you call <code>value()</code></p>
+<pre>// filter and reverse the numbers
+$numbers = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+$result = __::chain($numbers)->select(function($n) { return $n < 5; })
+                             ->reject(function($n) { return $n === 3; })
+                             ->sortBy(function($n) { return -$n; })
+                             ->value(); // array(4, 2, 1)</pre>
+
+<p class="block" id="value"><b class="function">value</b> <code>__(obj)->value()</code></p>
+<p>Extracts the value of a wrapped object.</p>
+<pre>__(array(1, 2, 3))->value(); // array(1, 2, 3)</pre>
+
+<h2 id="changelog">Change Log</h2>
+<p>Underscore.php version numbers have corresponding Underscore.js releases</p>
+<h3>1.3.1 &mdash; Jan. 31, 2012</h3>
+<ul>
+  <li>Added <code>has()</code></li>
+  <li>Added <code>collect()</code> as an alias to <code>map()</code></li>
+</ul>  
+
+<h3>1.2.4 &mdash; Jan. 8, 2012</h3>
+<p>Jumping from 1.0 to 1.2.4 to match Underscore.js.</p>
+<ul>
+  <li>Added <code>escape()</code></li>
+  <li>Added <code>initial()</code></li>
+  <li>Added <code>shuffle()</code></li>
+  <li><code>difference()</code> now accepts more than two parameters</li>
+  <li><code>clon()</code> now handles non-objects</li>
+  <li><code>last()</code> accepts n as a second parameter</li>
+  <li><code>template()</code> now has an escape syntax</li>
+  <li>Added <code>shallow</code> parameter to <code>flatten()</code></li>
+  <li>The preferred names for <code>detect()</code> and <code>select()</code> are now <code>find()</code> and <code>filter()</code></li>
+  <li><code>after(0, callback)</code> now triggers the callback immediately</li>
+  <li><code>groupBy</code> accepts both iterators and property keys: <code>groupBy(collection, 'property')</code></li>
+  <li>You can now call <code>chain()</code> statically: <code>__::chain($item)</code>. If you previously renamed the <code>__</code> function, you should do the same within <code>__::chain</code></li>
+</ul>
+
+<h3>1.0 &mdash; Aug. 6, 2011</h3>
+<p>Initial release</p>
+
+<h2 id="author">Author</h2>
+<p>Brian Haveri <a href="https://github.com/brianhaveri/">GitHub</a>, <a href="http://twitter.com/brianhaveri">@brianhaveri</a></p>
+
+<h3 id="credit">Credit</h3>
+<p>Thanks to Jeremy Ashkenas and all contributors to Underscore.js.</p>
+</div>
+
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-11187420-10");
+  pageTracker._trackPageview();
+  } catch(err) {}
+  </script>
+</body>
 </html>
