@@ -8,7 +8,7 @@
  * For docs, license, tests, and downloads, see: http://brianhaveri.github.com/Underscore.php
  */
 
-// Returns an instance of __ for OO-style calls
+// 返回面向对象调用方式的实例 __ 
 function __($item=null) {
   $__ = new __;
   if(func_num_args() > 0) $__->_wrapped = $item;
@@ -18,7 +18,7 @@ function __($item=null) {
 // Underscore.php
 class __ {
   
-  // Start the chain
+  // 开始链式
   private $_chained = false; // Are we in a chain?
   public function chain($item=null) {
     list($item) = self::_wrapArgs(func_get_args(), 1);
@@ -29,13 +29,13 @@ class __ {
   }
   
   
-  // End the chain
+  // 结束链式
   public function value() {
     return (isset($this)) ? $this->_wrapped : null;
   }
   
   
-  // Invoke the iterator on each item in the collection
+  // 对集合的每个条目进行调用迭代
   public function each($collection=null, $iterator=null) {
     list($collection, $iterator) = self::_wrapArgs(func_get_args(), 2);
     
@@ -51,7 +51,7 @@ class __ {
   }
   
   
-  // Return an array of values by mapping each item through the iterator
+  // 通过迭代器把集合中的每个值映射到一个新的数组并返回
   // map alias: collect
   public function collect($collection=null, $iterator=null) { return self::map($collection, $iterator); }
   public function map($collection=null, $iterator=null) {
@@ -70,7 +70,7 @@ class __ {
   }
   
   
-  // Reduce a collection to a single value
+  // 把集合中的元素归结到一个单独的值
   // reduce aliases: foldl, inject
   public function foldl($collection=null, $iterator=null, $memo=null) { return self::reduce($collection, $iterator, $memo); }
   public function inject($collection=null, $iterator=null, $memo=null) { return self::reduce($collection, $iterator, $memo); }
@@ -86,7 +86,7 @@ class __ {
   }
   
   
-  // Right-associative version of reduce
+  // 从右侧开始归结
   // reduceRight alias: foldr
   public function foldr($collection=null, $iterator=null, $memo=null) { return self::reduceRight($collection, $iterator, $memo); }
   public function reduceRight($collection=null, $iterator=null, $memo=null) {
@@ -104,7 +104,7 @@ class __ {
   }
   
   
-  // Extract an array of values for a given property
+  // 基于属性提取数组中的某个值
   public function pluck($collection=null, $key=null) {
     list($collection, $key) = self::_wrapArgs(func_get_args(), 2);
     
@@ -120,7 +120,7 @@ class __ {
   }
   
   
-  // Does the collection contain this value?
+  // 判断集合中是否包含某值
   // includ alias: contains
   public function contains($collection=null, $val=null) { return self::includ($collection, $val); }
   public function includ($collection=null, $val=null) {
